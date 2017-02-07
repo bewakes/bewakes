@@ -1,0 +1,180 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>BeWakes</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+            <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather|Ubuntu|Bitter|Arvo|Quicksand|Cantarell">
+        <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
+    </head>
+
+    <body>
+        {# header #}
+        <div id="page-header">
+            <div class="container">
+                <div class="row">{# for blog title #}
+                    <div class="col-md-4"></div>
+                    <div id="blog-title" class="col-md-4">{# for title #}
+                        <img id="wakes" src="{%static 'img/wakes.png' %}">
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row"> {# subitle of the blog #}
+                </div>
+                <hr><hr class="short-hr">
+                <div class="row"> {# for navigation links and search #}
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">{# for links #}
+                        <ul class="list-inline text-center navbar-link">
+                            <li><a href="{% url 'index' %}">HOME</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'index' %}">BLOG</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'index' %}">CONTACT</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'index' %}">ABOUT</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3"> {# for search #}
+                        <span id="search-icon" onclick="searchIconClick()" class="glyphicon glyphicon-search"></span>
+                        <input id="searchbox" type="text" placeholder=" type and press Enter"/>
+                        <div id="search-result">{# display search result #}
+                            <ul id="search-result-list" class="list-unstyled">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# content part #}
+        <div id="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div id="article">
+                            <div id="article-title">
+                                {% if next_article %}
+                                <a href="{% url 'home' next_article.slug %}" alternate="bibek"><span class="glyphicon glyphicon-circle-arrow-left arrow-left"></span></a>
+                                {% endif %}
+                                <span id="article-title-text"> {{article.title}}</span>
+                                {% if previous_article %}
+                                <a href="{% url 'home' previous_article.slug %}"><span class="glyphicon glyphicon-circle-arrow-right arrow-right"></span></a>
+                                {% endif %}
+                                <div id="blogpost-date">{{article.published_date.date}}</div> 
+                            </div>
+                            <div id="tags"> {# article tags #}
+                                <ul class="list-inline">
+                                    <span class="glyphicon glyphicon-tags" style="color:#777"></span>&nbsp;
+                                    {% for tag in article_tags %}
+                                    <li class="tag-element">
+                                        <a href="#">{{tag.name}}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div id="article-content">
+                                <p>{{article.content | safe}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div id="side-pane">
+                            <h2><u>Recent posts</u></h2><br>
+                            <ul class="list-unstyled">
+                                {% for recent in recent_posts %}
+                                <li><a href="{% url 'home' recent.slug %}">{{recent.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# comment part #}
+        <div id="comments-section" class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="white-bg comment-container">
+                        <h2><u><b><i>{{comments.count}} comment{{comments.count|pluralize}}</i></b></u></h2>
+                        {% for comment in comments %}
+                        <div class="" style="float:left;margin:10px;">
+                            <span class="glyphicon glyphicon-user user-pic"></span>
+                        </div>
+                        <div class=""> 
+                            <span class="username">{{comment.username}}</span>
+                            <span class="comment-date text-right"> {{comment.comment_date.date}}</span>
+                            <p class="text-left">{{comment.text}}</p>
+                            <hr class="short-hr">
+                        </div>
+                        {% endfor %}
+
+                        <div style="padding:10px">
+                            <h2>Your comment..</h2>
+                            <form action="{% url 'comment' %}" method="post">
+                            {% csrf_token %}
+                                <div id="comment-form">
+                                    <label>Name:</label>
+                                    <input name="name" class="textbox-name" type="text" placeholder="Your Name"><hr class="hr-short">
+                                    <input type="hidden" name="slug" value="{{article.slug}}">
+                                    <label>Comment:</label>
+                                    <textarea name="comment" class="textbox-comment" type="textarea" placeholder="Comment.."></textarea><br><br>
+                                    <input class="submit-button" type="submit" value="Post comment">
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    <script type="text/javascript" src="{% static 'jquery.js' %}"></script>
+    <script src="{% static 'custom.js' %}"></script>
+    <script>
+
+        // when the contents of the searchbox change
+        $("#searchbox").on('input', function(e) { 
+            var query = $("#searchbox").val();
+
+            // send post request
+            $.ajax({
+                "type":"POST",
+                //"contentType":"application/json",
+                "url":"{% url 'searchresult' %}",
+                "data":{query:query, csrfmiddlewaretoken:'{{csrf_token}}'}
+            })
+            .done(function(msg) {
+                var jsondata = JSON.parse(msg);
+                populateSearchResult(jsondata);
+            });
+        });
+
+        // global variable for searchbox
+        var g_searchbox = document.getElementById('searchbox');
+
+        // to hide the input box
+        document.onload = load();
+        // to blur the searchbox
+        document.onclick = function(e)
+            {
+                if(e.target.id!='searchbox' && e.target.id!="search-icon")
+                {
+                    g_searchbox.style.visibility="hidden";
+                    $("#search-result").hide();
+                }
+            }
+
+    </script>
+
+</html>
+
