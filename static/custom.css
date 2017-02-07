@@ -223,12 +223,22 @@ hr {
     color:#444;
 }
 
-#article-content
+#article-content, .article-content
 {
     font-family:Lato; 
     color:#888;
     font-size:2.1em;
     margin:auto;
+    padding-right:12%;
+    padding-left:12%;
+}
+
+.aboutme-content
+{
+    font-family:Lato; 
+    color:#666;
+    font-size:1.5em;
+    margin-left:4%;
     padding-right:12%;
     padding-left:12%;
 }
@@ -305,6 +315,11 @@ hr {
 .submit-button:hover
 {
     font-weight:bold;
+}
+
+.small-a {
+    font-size:0.8em;
+    margin-right:5px;
 }
 
 @media (max-width: 480px) {

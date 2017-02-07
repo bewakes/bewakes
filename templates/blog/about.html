@@ -1,5 +1,38 @@
 {% extends "blog/base.html" %}
+{% load staticfiles %}
 
 {% block content %}
-about
+<div id="article">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="article-title">
+                <span id="article-title-text">That's Me</span>
+            </div>
+            <div class="col-md-3" id="article-content">
+                <img src="{% static 'img/blogimage.jpg' %}">
+            </div>
+            <div class="col-md-8 aboutme-content ">
+                <div class="">
+                    right there on the left.<br>
+                    <b>December 29th, 1994 [Meghauli, Chitwan]</b><br>
+                    always a <b>proud Nepali</b><br>
+                    a Computer Engineer. <br>
+                    <b> School: </b> Valmiki Shiksha Sadan, Bharatpur<br>
+                    <b> High School: </b> SOS Hermann Gmeiner School, Bharatpur<br>
+                    <b> BE : </b> IOE Pulchowk Campus, Lalitpur<br>
+                    loves <b>Programming & Mathematics</b> a lot.. And people too!<br>
+                    <b>Sports:</b> Table Tennis and Swimming.<br>
+                    <b>Hobbies:</b> friends, 'math'ing, travelling, sketching, music<br>
+                    <!-- <b>Social:</b>
+                            <a class="small-a" href="http://www.facebook.com/be.pandey">Facebook</a> 
+                            <a class="small-a" href="http://www.twitter.com/be_pandey">@be_pandey</a> 
+                            <a class="small-a" href="http://www.linkedin.com/in/bibek-pandey-023879b1">Linkedin</a><br>
+                            <a class="" href="http://www.github.com/bewakes">Github</a><br>
+                    -->
+                <b>loves</b> laughing, making people laugh and being made laugh<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

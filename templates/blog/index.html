@@ -3,8 +3,8 @@
         {# content part #}
         <div id="contents">
             <div class="container-fluid">
-                <div class="rowa">
-                    <div class="caol-md-12">
+                <div class="row">
+                    <div class="coal-md-12">
                         <div id="article">
                             <div id="article-title">
                                 {% if next_article %}
@@ -90,41 +90,6 @@
         </div>
         {% endblock %}
         {% block scripts %}
-        <script>
-
-        // when the contents of the searchbox change
-        $("#searchbox").on('input', function(e) { 
-            var query = $("#searchbox").val();
-
-            // send post request
-            $.ajax({
-                "type":"POST",
-                //"contentType":"application/json",
-                "url":"{% url 'searchresult' %}",
-                "data":{query:query, csrfmiddlewaretoken:'{{csrf_token}}'}
-            })
-            .done(function(msg) {
-                var jsondata = JSON.parse(msg);
-                populateSearchResult(jsondata);
-            });
-        });
-
-        // global variable for searchbox
-        var g_searchbox = document.getElementById('searchbox');
-
-        // to hide the input box
-        document.onload = load();
-        // to blur the searchbox
-        document.onclick = function(e)
-            {
-                if(e.target.id!='searchbox' && e.target.id!="search-icon")
-                {
-                    g_searchbox.style.visibility="hidden";
-                    $("#search-result").hide();
-                }
-            }
-
-    </script>
-    {% endblock %}
+        {% endblock %}
 
 
