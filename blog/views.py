@@ -72,6 +72,9 @@ class CommentProcess(View):
     def get(self, request):
         return HttpResponse('ulala')
 
+class About(View):
+    def get(self, request):
+        return render(request, 'blog/about.html', {})
 
 @csrf_exempt
 def searchresult(request):

@@ -24,7 +24,6 @@ class Article(models.Model):
         if not self.id:
             # newly created
             self.slug = slugify(self.title)
-        self.content = markdown.markdown(self.content, safe_mode='escape')
         super(Article, self).save(*args, **kwargs)
 
     def __str__(self):

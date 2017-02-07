@@ -5,7 +5,7 @@ body
 
 #page-header
 {
-    idth:100%;
+    width:100%;
     background-color:#fff;
 }
 
@@ -25,9 +25,14 @@ h1.text-bold-black
     color:black;
 }
 
+hr {
+    border-color: #bbb;
+}
+
 .short-hr
 {
     width:85%;
+    border-color:#bbb;
 }
 
 .navbar-link
@@ -175,10 +180,9 @@ h1.text-bold-black
 #article
 {
     padding:15px;
+    width:100%;
     background:white;
-    margin-right:40px;
-    box-shadow: 5px 5px 5px #ccc;
-    border-radius:2px;
+    margin-right:0px;
 }
 
 .arrow-left
@@ -213,7 +217,7 @@ h1.text-bold-black
 
 #article-title-text 
 {
-    font-family:helvetica;
+    font-family:Open Sans;
     font-size:3.7em;
     text-align:center;
     color:#444;
@@ -221,9 +225,12 @@ h1.text-bold-black
 
 #article-content
 {
-    font-family:helvetica; 
-    color:#666;
+    font-family:Lato; 
+    color:#888;
     font-size:2.1em;
+    margin:auto;
+    padding-right:12%;
+    padding-left:12%;
 }
 
 

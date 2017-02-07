@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>BeWakes</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+            <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather|Ubuntu|Bitter|Arvo|Quicksand|Cantarell|Lato|Open+Sans">
+        <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
+    </head>
+
+    <body>
+        {# header #}
+        <div id="page-header">
+            <div class="container">
+                <div class="row">{# for blog title #}
+                    <div class="col-md-4"></div>
+                    <div id="blog-title" class="col-md-4">{# for title #}
+                        <img id="wakes" src="{%static 'img/wakes.png' %}">
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row"> {# subitle of the blog #}
+                </div>
+                <hr><hr class="short-hr">
+                <div class="row"> {# for navigation links and search #}
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">{# for links #}
+                        <ul class="list-inline text-center navbar-link">
+                            <li><a href="{% url 'index' %}">HOME</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'index' %}">BLOG</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'index' %}">CONTACT</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'index' %}">ABOUT</a>
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                    <div class="col-md-3"> {# for search #}
+                        <span id="search-icon" onclick="searchIconClick()" class="glyphicon glyphicon-search"></span>
+                        <input id="searchbox" type="text" placeholder=" type and press Enter"/>
+                        <div id="search-result">{# display search result #}
+                            <ul id="search-result-list" class="list-unstyled">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+        </body>
+    
+        <script type="text/javascript" src="{% static 'jquery.js' %}"></script>
+        <script src="{% static 'custom.js' %}"></script>
+
+        <script>
+        // when the contents of the searchbox change
+        $("#searchbox").on('input', function(e) { 
+            var query = $("#searchbox").val();
+
+            // send post request
+            $.ajax({
+                "type":"POST",
+                //"contentType":"application/json",
+                "url":"{% url 'searchresult' %}",
+                "data":{query:query, csrfmiddlewaretoken:'{{csrf_token}}'}
+            })
+            .done(function(msg) {
+                var jsondata = JSON.parse(msg);
+                populateSearchResult(jsondata);
+            });
+        });
+
+        // global variable for searchbox
+        var g_searchbox = document.getElementById('searchbox');
+
+        // to hide the input box
+        document.onload = load();
+        // to blur the searchbox
+        document.onclick = function(e)
+            {
+                if(e.target.id!='searchbox' && e.target.id!="search-icon")
+                {
+                    g_searchbox.style.visibility="hidden";
+                    $("#search-result").hide();
+                }
+            }
+
+    </script>
+
+        {% block scripts %}
+        {% endblock %}
+    </html>
+
