@@ -7,13 +7,7 @@
                     <div class="coal-md-12">
                         <div id="article">
                             <div id="article-title">
-                                {% if next_article %}
-                                <a href="{% url 'home' next_article.slug %}" alternate="bibek"><span class="glyphicon glyphicon-circle-arrow-left arrow-left"></span></a>
-                                {% endif %}
                                 <span id="article-title-text"> {{article.title}}</span>
-                                {% if previous_article %}
-                                <a href="{% url 'home' previous_article.slug %}"><span class="glyphicon glyphicon-circle-arrow-right arrow-right"></span></a>
-                                {% endif %}
                                 <div id="blogpost-date">{{article.published_date.date}}</div> 
                             </div>
                             <div id="tags"> {# article tags #}
@@ -31,8 +25,23 @@
                                 {% with markdowned=article.content|markdownify %}
                                 <p>{{markdowned | safe}}</p>
                                 {% endwith %}
+
+                                <div class="row">
+                                <span class="col-md-2 arrow-left">
+                                {% if previous_article %}
+                                    <a href="{% url 'home' previous_article.slug %}"><span class="">&lt;&lt;Previous</span></a>
+                                {% endif %}
+                                </span>
+                                <span class="col-md-8"></span>
+
+                                <span class="arrow-right col-md-2">
+                                {% if next_article %}
+                                <a href="{% url 'home' next_article.slug %}"><span class="">Next&gt;&gt;</span></a>
+                                {% endif %}
+                                </span>
+                                </div>
+
                             </div>
-                            
                         </div>
                     </div>
                     <!--<div class="col-md-3">
@@ -50,6 +59,7 @@
         </div>
 
         {# comment part #}
+        <!--
         <div id="comments-section" class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
@@ -88,6 +98,7 @@
                 </div>
             </div>
         </div>
+        -->
         {% endblock %}
         {% block scripts %}
         {% endblock %}

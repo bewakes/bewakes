@@ -187,17 +187,15 @@ hr {
 
 .arrow-left
 {
-    font-size:3.5em;
+    font-size:1.2em;
     margin-top:25px;
-    float:left;
     color:#ddd;
 }
 
 .arrow-right
 {
-    font-size:3.5em;
+    font-size:1.2em;
     margin-top:25px;
-    float:right;
     color:#ddd;
 }
 

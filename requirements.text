@@ -1,0 +1,7 @@
+appdirs==1.4.0
+Django==1.10.5
+django-markdown==0.8.4
+Markdown==2.6.8
+packaging==16.8
+pyparsing==2.1.10
+six==1.10.0

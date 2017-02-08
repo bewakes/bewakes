@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# $1 is project name
+# $2 is task name
+# $3 ... are options
+
+case $2 in
+  setup)
+    # git
+    git init
+    # echo '.brotasks' >> .gitignore
+
+    # setup virtual environment
+    virtualenv --python=python3 .env
+    echo '.env' >> .gitignore
+    ;;
+	default)
+		bro env
+		;;
+  env)
+    source .env/bin/activate
+    #nvm use v5.6.0
+    ;;
+esac

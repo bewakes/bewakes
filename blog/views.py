@@ -19,12 +19,11 @@ class Home(View):
             recents = recents[10]
         self.context['recent_posts'] = recents
 
-    def get(self, request, slug=''):
+    def get(self, request, slug=None):
         article = None
         previous_article = None
         next_article = None
-        print(slug)
-        if slug=='': # means the default blog page, get latest article
+        if not slug: # means the default blog page, get latest article
             try: # in case no articles are there
                 articles = Article.objects.filter(publish=True).order_by('-id')
                 article = articles[0]
