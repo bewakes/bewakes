@@ -25,18 +25,19 @@
                                 {% with markdowned=article.content|markdownify %}
                                 <p>{{markdowned | safe}}</p>
                                 {% endwith %}
+                                <hr>
 
                                 <div class="row">
-                                <span class="col-md-2 arrow-left">
+                                <span class="col-md-3 arrow-left">
                                 {% if previous_article %}
-                                    <a href="{% url 'home' previous_article.slug %}"><span class="">&lt;&lt;Previous</span></a>
+                                    <a href="{% url 'home' previous_article.slug %}" title="{{previous_article.title}}">&lt;&lt; Previous</a>
                                 {% endif %}
                                 </span>
-                                <span class="col-md-8"></span>
+                                <span class="col-md-6"></span>
 
-                                <span class="arrow-right col-md-2">
+                                <span class="arrow-right col-md-3 text-right">
                                 {% if next_article %}
-                                <a href="{% url 'home' next_article.slug %}"><span class="">Next&gt;&gt;</span></a>
+                                <a href="{% url 'home' next_article.slug %}" title="{{next_article.title}}">Next &gt;&gt;</a>
                                 {% endif %}
                                 </span>
                                 </div>

@@ -185,18 +185,23 @@ hr {
     margin-right:0px;
 }
 
-.arrow-left
+.arrow-left, .arrow-left a
 {
-    font-size:1.2em;
-    margin-top:25px;
-    color:#ddd;
+    text-decoration:none;
+    font-size:1.1em;
+    color:#aaa;
 }
 
-.arrow-right
+.arrow-right, .arrow-right a
 {
-    font-size:1.2em;
-    margin-top:25px;
-    color:#ddd;
+    text-decoration:none;
+    font-size:1.1em;
+    color:#aaa;
+}
+
+.arrow-right a:hover, .arrow-left a:hover
+{
+    color:#777;
 }
 
 .arrow-left:hover,.arrow-right:hover
