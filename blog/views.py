@@ -23,6 +23,7 @@ class Home(View):
         article = None
         previous_article = None
         next_article = None
+        print(slug)
         if slug=='': # means the default blog page, get latest article
             try: # in case no articles are there
                 articles = Article.objects.filter(publish=True).order_by('-id')
@@ -75,6 +76,10 @@ class CommentProcess(View):
 class About(View):
     def get(self, request):
         return render(request, 'blog/about.html', {})
+
+class Contact(View):
+    def get(self, request):
+        return render(request, 'blog/contact.html', {})
 
 @csrf_exempt
 def searchresult(request):

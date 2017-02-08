@@ -243,6 +243,15 @@ hr {
     padding-left:12%;
 }
 
+.contact-content
+{
+    font-family:Lato; 
+    color:#666;
+    font-size:1.7em;
+    margin-left:4%;
+    padding-right:7%;
+    padding-left:7%;
+}
 
 #side-pane
 {

@@ -1,0 +1,10 @@
+appdirs==1.4.0
+isc==2.0
+packaging==16.8
+pygobject==3.22.0
+pyparsing==2.1.10
+pyxdg==0.25
+ranger==1.8.1
+six==1.10.0
+team==1.0
+virtualenv==15.1.0
