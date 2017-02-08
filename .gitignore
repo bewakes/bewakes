@@ -3,3 +3,6 @@
 *~
 *.sqlite3
 *.jpg
+web/
+manage.py
+wsgi.py
