@@ -18,7 +18,7 @@ from django.contrib import admin
 from blog.views import About, Contact
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^infiniteness/', admin.site.urls),
     url(r'^about/', About.as_view(), name='about'),
     url(r'^contact/', Contact.as_view(), name='contact'),
     #url(r'^markdown/', include('django_markdown.urls')),
