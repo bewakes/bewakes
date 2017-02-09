@@ -16,6 +16,7 @@ class Article(models.Model):
     tag = models.ManyToManyField('Tag')
     content = models.TextField()
     published_date = models.DateTimeField(default=datetime.now())
+    modified_date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(blank=True)
     publish = models.BooleanField(default=True)
     visits = models.IntegerField(default=0)

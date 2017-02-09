@@ -234,9 +234,9 @@ hr {
 
 #article-content, .article-content 
 {
-    font-family:Lato; 
+    font-family:Vollkorn; 
     color:#555;
-    font-size:2.0em;
+    font-size:1.9em;
     margin:auto;
     padding-right:13%;
     padding-left:13%;
@@ -244,8 +244,8 @@ hr {
 
 .aboutme-content
 {
-    font-family:Lato; 
-    color:#666;
+    font-family:Vollkorn; 
+    color:#555;
     font-size:1.5em;
     margin-left:4%;
     padding-right:12%;
@@ -254,7 +254,7 @@ hr {
 
 .contact-content
 {
-    font-family:Lato; 
+    font-family:Vollkorn; 
     color:#555;
     font-size:1.7em;
     margin-left:4%;
