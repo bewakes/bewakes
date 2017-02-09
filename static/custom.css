@@ -3,6 +3,12 @@ body
     background-color:#eee;
 }
 
+code
+{
+    font-weight:bold;
+    font-size:1.1em;
+}
+
 #page-header
 {
     width:100%;
@@ -223,17 +229,17 @@ hr {
     font-family:Open Sans;
     font-size:3.7em;
     text-align:center;
-    color:#444;
+    color:#333;
 }
 
-#article-content, .article-content
+#article-content, .article-content 
 {
     font-family:Lato; 
-    color:#888;
-    font-size:2.1em;
+    color:#555;
+    font-size:2.0em;
     margin:auto;
-    padding-right:12%;
-    padding-left:12%;
+    padding-right:13%;
+    padding-left:13%;
 }
 
 .aboutme-content
@@ -249,7 +255,7 @@ hr {
 .contact-content
 {
     font-family:Lato; 
-    color:#666;
+    color:#555;
     font-size:1.7em;
     margin-left:4%;
     padding-right:7%;
