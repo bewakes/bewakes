@@ -31,18 +31,20 @@
                                 <hr>
 
                                 <div class="row">
-                                <span class="col-md-3 arrow-left">
-                                {% if previous_article %}
-                                    <a href="{% url 'home' previous_article.slug %}" title="{{previous_article.title}}">&lt;&lt; Previous</a>
-                                {% endif %}
-                                </span>
-                                <span class="col-md-6"></span>
+                                    <span class="col-md-3 arrow-left">
+                                    {% if previous_article %}
+                                        <a href="{% url 'home' previous_article.slug %}" title="{{previous_article.title}}">&lt;&lt; Previous</a>
+                                    {% endif %}
+                                    </span>
+                                    <span class="col-md-6 text-center">
+                                        <div style="margin-top:25px" class="fb-like" data-href="http://bewakes.udghos.com/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                    </span>
 
-                                <span class="arrow-right col-md-3 text-right">
-                                {% if next_article %}
-                                <a href="{% url 'home' next_article.slug %}" title="{{next_article.title}}">Next &gt;&gt;</a>
-                                {% endif %}
-                                </span>
+                                    <span class="arrow-right col-md-3 text-right">
+                                    {% if next_article %}
+                                    <a href="{% url 'home' next_article.slug %}" title="{{next_article.title}}">Next &gt;&gt;</a>
+                                    {% endif %}
+                                    </span>
                                 </div>
 
                             </div>

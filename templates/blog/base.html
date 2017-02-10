@@ -2,12 +2,26 @@
 <html>
     <head>
         <title>BeWakes</title>
+        <meta property="og:url" content="http://bewakes.udghos.com" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{{article.title}}" />
+        <meta property="og:description"   content="{{article.content|truncatechars:50}}" />
+
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
             <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather|Ubuntu|Bitter|Arvo|Quicksand|Cantarell|Lato|Open+Sans|Vollkorn">
         <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
     </head>
 
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=330985767105473";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
         {# header #}
         <div id="page-header">
             <div class="container">

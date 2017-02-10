@@ -13,19 +13,24 @@ class Home(View):
     context = {}
     tags = None # for tag cloud
 
-    def __init__(self): # to populate with the tag clouds
-        recents = Article.objects.filter(publish=True).order_by('-published_date')
-        if len(recents) > 10:
-            recents = recents[10]
-        self.context['recent_posts'] = recents
+    # def __init__(self): # to populate with the tag clouds
+        # recents = Article.objects.filter(publish=True).order_by('-published_date')
+        # if len(recents) > 10:
+            # recents = recents[10]
+    #     self.context['recent_posts'] = recents
 
     def get(self, request, slug=None):
+
+        filterargs = {'publish':True}
+        if request.user.is_superuser:
+            filterargs = {}
+
         article = None
         previous_article = None
         next_article = None
         if not slug: # means the default blog page, get latest article
             try: # in case no articles are there
-                articles = Article.objects.filter(publish=True).order_by('-id')
+                articles = Article.objects.filter(**filterargs).order_by('-id')
                 article = articles[0]
                 if len(articles)>1:
                     previous_article = articles[1]
@@ -34,21 +39,23 @@ class Home(View):
                 return HttpResponse('no articles present:') 
         else:
             article = get_object_or_404(Article, slug=slug)
-            if article.publish==False:raise Http404
+            if not article.publish and not request.user.is_superuser: raise Http404
             article.visits+=1
             article.save()
-            articles = Article.objects.filter(publish=True).order_by('-published_date')
+            articles = Article.objects.filter(**filterargs).order_by('-published_date')
             count = articles.count()
             index = list(articles).index(article)
+
             if index==len(articles)-1:
                 previous_article = None
-                next_article = articles[(index-1+count)%count]
+                next_article = None if index-1< 0 else articles[index-1]
             elif index==0:
                 next_article = None
-                previous_article = articles[(index+1)%count]
+                previous_article = None if index+1 >= len(articles) else articles[index+1]
             else:
                 next_article = articles[index-1]
                 previous_article = articles[index+1]
+
         self.context['next_article'] = next_article
         self.context['previous_article'] = previous_article
         article_tags = Tag.objects.filter(article=article)
@@ -86,6 +93,9 @@ class Posts(View):
         tagname = request.GET.get('tag', '')
         query = request.GET.get('q', '')
 
+        filterpublish = {'publish':True}
+        if request.user.is_superuser: filterpublish = {}
+
         context = {}
 
         search = False
@@ -97,18 +107,18 @@ class Posts(View):
         if tagname:
             context['searchtext'] = 'for tag "{}"'.format(tagname)
             if len(tagname) > 3:
-                articles = Article.objects.\
-                    filter(publish=True, tag__name__icontains=tagname).\
+                articles = Article.objects.filter(**filterpublish).\
+                    filter(tag__name__icontains=tagname).\
                     order_by('-published_date')
         elif query:
             context['searchtext'] = 'for query "{}"'.format(query)
             if len(query)>=5:
-                articles = Article.objects.\
+                articles = Article.objects.filter(**filterpublish).\
                     filter(publish=True, title__icontains=query).\
                     order_by('-published_date')
 
         if not search:
-            articles = Article.objects.all()
+            articles = Article.objects.filter(**filterpublish)
         context['articles'] = articles
 
         return render(request, 'blog/search-list.html', context)
