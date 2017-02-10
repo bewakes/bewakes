@@ -129,9 +129,16 @@ hr {
 
 #tags
 {
+    margin-top:-10px;
     text-align:center;
 }
-.tag-element a, #side-pane a
+.tag-element, #side-pane a
+{
+    color:#777;
+    display:block;
+    margin-left:-8px;
+}
+.tag-element a
 {
     color:#777;
     text-decoration:none;
