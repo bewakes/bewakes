@@ -38,13 +38,14 @@ class Home(View):
             article.visits+=1
             article.save()
             articles = Article.objects.filter(publish=True).order_by('-published_date')
+            count = articles.count()
             index = list(articles).index(article)
             if index==len(articles)-1:
                 previous_article = None
-                next_article = articles[index-1]
+                next_article = articles[(index-1+count)%count]
             elif index==0:
                 next_article = None
-                previous_article = articles[index+1]
+                previous_article = articles[(index+1)%count]
             else:
                 next_article = articles[index-1]
                 previous_article = articles[index+1]
