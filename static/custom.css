@@ -350,6 +350,11 @@ hr {
     margin-right:5px;
 }
 
+.aboutme-content hr {
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
 @media (max-width: 480px) {
 
     #side-pane {
