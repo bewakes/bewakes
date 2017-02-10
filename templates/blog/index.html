@@ -15,10 +15,13 @@
                             </div>
                             <div id="tags"> {# article tags #}
                                 <ul class="list-inline">
-                                    <span class="glyphicon glyphicon-tags" style="color:#777"></span>&nbsp;
+                                    <span class="glyphicon glyphicon-tags" style="margin-right:6px;color:#777"></span>&nbsp;
                                     {% for tag in article_tags %}
                                     <li class="tag-element">
-                                        <a href="{% url 'posts'%}?tag={{tag.name}}">{{tag.name}}</a> | 
+                                        <a href="{% url 'posts'%}?tag={{tag.name}}">{{tag.name}}</a> 
+                                        {% with len=article_tags|length %}
+                                        {%if forloop.counter < len %} | {% endif %}
+                                        {% endwith %}
                                     </li>
                                     {% endfor %}
                                 </ul>
