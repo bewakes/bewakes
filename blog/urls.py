@@ -7,8 +7,8 @@ urlpatterns =[
     # url(r'^blog/', include('blog.urls')),
 
     url(r'posts/$', Posts.as_view(), name='posts'),
-    url(r'^$', Home.as_view(), name='index'),
-    url(r'(?P<slug>[-a-zA-z0-9]+)/$', Home.as_view(), name='home'),
     url(r'comment/process/$', CommentProcess.as_view(), name='comment'),
     url(r'search/results/$', searchresult, name='searchresult'),
+    url(r'(?P<slug>[-a-zA-z0-9]+)/$', Home.as_view(), name='home'),
+    url(r'^$', Home.as_view(), name='index'),
 ]

@@ -7,8 +7,14 @@ function load()
 // when search icon is clicked, set placeholder and focus
 function searchIconClick()
 {
-    g_searchbox.style.visibility="visible";
-    g_searchbox.focus();
+    if (g_searchbox.style.visibility == "visible") {
+        g_searchbox.style.visibility="hidden";
+        $('#search-result').hide();
+    }
+    else {
+        g_searchbox.style.visibility="visible";
+        g_searchbox.focus();
+    }
 }
 
 // function gets json data from server(search results) and populates'em
@@ -31,8 +37,9 @@ function populateSearchResult(jsondata)
     for(var i=0;i<data.length;i++)
     {
         var li = document.createElement("li");
+        li.setAttribute("class", "list-group-item");
         var a = document.createElement("a");
-        a.setAttribute("href", "posts/"+ data[i].slug);
+        a.setAttribute("href", "/blog/"+ data[i].slug);
         a.className = 'search-result-link';
         a.innerHTML = data[i].title;
         li.appendChild(a);

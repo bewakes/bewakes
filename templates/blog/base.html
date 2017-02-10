@@ -57,9 +57,9 @@
                     </div>
                     <div class="col-md-3"> {# for search #}
                         <span id="search-icon" onclick="searchIconClick()" class="glyphicon glyphicon-search"></span>
-                        <input id="searchbox" type="text" placeholder=" type and press Enter"/>
+                        <input id="searchbox" type="text" placeholder="Search for Articles"/>
                         <div id="search-result">{# display search result #}
-                            <ul id="search-result-list" class="list-unstyled">
+                            <ul id="search-result-list" class="list-group">
                             </ul>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
 
             // send post request
             $.ajax({
-                "type":"POST",
+                "type":"GET",
                 //"contentType":"application/json",
                 "url":"{% url 'searchresult' %}",
                 "data":{query:query, csrfmiddlewaretoken:'{{csrf_token}}'}

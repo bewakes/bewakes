@@ -79,24 +79,28 @@ hr {
     position:absolute;
     z-index:1;
     width:100%;
-    background:#777;
-    top:35px;
+    topa:35px;
     right:25px;
     border-radius:3px;
-    color:#000;
-    padding:0px 0px 0px 5px;
+    max-height:200px;
+    overflow-y:scroll;
+}
+
+#search-result ul
+{
+    margin-bottom:0px ;
 }
 
 #search-result-list li a:hover
 {
-    font-weight:bold;
-    text-decoration:underline;
+    color:#888;
 }
 
 
 #search-result-list li a
 {
     text-decoration:none;
+    font-weight:bold;
     color:#444;
 }
 

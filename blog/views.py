@@ -128,7 +128,7 @@ def searchresult(request):
     # assumption is that method is post
     context = {}
     context['data']='empty'
-    query = request.POST.get('query','')
+    query = request.GET.get('query','')
     if query=='':
         return HttpResponse(json.dumps(context))
     articles = Article.objects.filter(title__contains=query)
