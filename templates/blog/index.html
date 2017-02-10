@@ -18,7 +18,7 @@
                                     <span class="glyphicon glyphicon-tags" style="color:#777"></span>&nbsp;
                                     {% for tag in article_tags %}
                                     <li class="tag-element">
-                                        <a href="#">{{tag.name}}</a>
+                                        <a href="{% url 'posts'%}?tag={{tag.name}}">{{tag.name}}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>

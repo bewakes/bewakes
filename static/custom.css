@@ -1,12 +1,22 @@
 body 
 {
-    background-color:#eee;
+    background-color:#fff;
 }
 
 code
 {
     font-weight:bold;
     font-size:1.1em;
+}
+
+a.nodecor
+{
+    text-decoration:none;
+    color:#444;
+}
+a.nodecor:hover
+{
+    color:#888;
 }
 
 #page-header
@@ -226,7 +236,7 @@ hr {
 
 #article-title-text 
 {
-    font-family:Open Sans;
+    font-family:Vollkorn;
     font-size:3.7em;
     text-align:center;
     color:#333;

@@ -80,6 +80,38 @@ class Contact(View):
     def get(self, request):
         return render(request, 'blog/contact.html', {})
 
+class Posts(View):
+    def get(self, request):
+        tagname = request.GET.get('tag', '')
+        query = request.GET.get('q', '')
+
+        context = {}
+
+        search = False
+        if tagname or query:
+            search = True
+
+
+        articles = []
+        if tagname:
+            context['searchtext'] = 'for tag "{}"'.format(tagname)
+            if len(tagname) > 3:
+                articles = Article.objects.\
+                    filter(publish=True, tag__name__icontains=tagname).\
+                    order_by('-published_date')
+        elif query:
+            context['searchtext'] = 'for query "{}"'.format(query)
+            if len(query)>=5:
+                articles = Article.objects.\
+                    filter(publish=True, title__icontains=query).\
+                    order_by('-published_date')
+
+        if not search:
+            articles = Article.objects.all()
+        context['articles'] = articles
+
+        return render(request, 'blog/search-list.html', context)
+
 @csrf_exempt
 def searchresult(request):
     # assumption is that method is post
