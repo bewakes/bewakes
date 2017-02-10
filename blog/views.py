@@ -127,7 +127,7 @@ class Posts(View):
 def searchresult(request):
     # assumption is that method is post
     context = {}
-    context['data']='empty'
+    context['data']=[]
     query = request.GET.get('query','')
     if query=='':
         return HttpResponse(json.dumps(context))

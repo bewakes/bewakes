@@ -27,7 +27,7 @@ function populateSearchResult(jsondata)
         searchlist.removeChild(childs[i]);
 
     data = jsondata.data;
-    if (data=="empty") 
+    if (data.length==0) 
     {   $("#search-result").hide(); 
         return;
     }
