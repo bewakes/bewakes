@@ -118,7 +118,8 @@ class Posts(View):
                     order_by('-published_date')
 
         if not search:
-            articles = Article.objects.filter(**filterpublish)
+            articles = Article.objects.filter(**filterpublish).\
+			order_by('-published_date')
         context['articles'] = articles
 
         return render(request, 'blog/search-list.html', context)
