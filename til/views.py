@@ -67,7 +67,7 @@ def get_til(request):
         import random
         count = TIL.objects.count()
         r = random.randrange(1, count+1)
-        til = Til.objects.get(id=r)
+        til = TIL.objects.get(id=r)
         tils = [til]
     else:
         tils = TIL.objects.filter(**filtercrit)[offset*RESULTSIZE:(offset+1)*RESULTSIZE]
