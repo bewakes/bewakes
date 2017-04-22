@@ -47,7 +47,6 @@ class TILHome(View):
 RESULTSIZE = 10
 def get_til(request):
     # first check for tag filter
-    retobjs = []
     filtercrit = {}
     try:
         offset = int(request.GET.get('offset'))
@@ -69,7 +68,7 @@ def get_til(request):
         count = Til.objects.count()
         r = random.randrange(1, count+1)
         til = Til.objects.get(id=r)
-        retobjs.append(til)
+        tils = [til]
     else:
         tils = TIL.objects.filter(**filtercrit)[offset*RESULTSIZE:(offset+1)*RESULTSIZE]
         if not tils:
