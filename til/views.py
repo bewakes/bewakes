@@ -65,7 +65,7 @@ def get_til(request):
     rand = request.GET.get('random')
     if rand:
         import random
-        count = Til.objects.count()
+        count = TIL.objects.count()
         r = random.randrange(1, count+1)
         til = Til.objects.get(id=r)
         tils = [til]
