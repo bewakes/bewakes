@@ -1,0 +1,61 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div id="contents">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h2>TIL Items</h2>
+                <div id="til-items">
+                </div>
+            </div>
+            <div class="col-md-5">
+                {% if authenticated or True %}
+                <h2>Add TIL Item</h2>
+                <form id="til-form">
+                    {% csrf_token %}
+                    <table class="table table-striped">
+                        <tr class="form-item">
+                            <td><label>Title:</label></td>
+                            <td><input size="40" type="text" name="title"/></td>
+                        </tr>
+                        <tr class="form-item">
+                            <td><label>Tags:</label></td>
+                            <td><input size="40" type="text" name="tags"/></td>
+                        </tr>
+                        <tr class="form-item">
+                            <td><label>Content:</label></td>
+                            <td><textarea cols="40" rows="5" name="content"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-info btn-block" type="button" onclick="submitItem()">Add</button></td>
+                        </tr>
+                    </table>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function submitItem() {
+        $.post('/til/', $('#til-form').serialize(), function(data) {
+            alert('SUCCESS');
+            $('input[type=text], textarea').val("");
+        })
+        .fail(function(data) {
+            if(data.status==403) {
+                alert('Your are forbidden');
+            }
+            else if (data.status==400) {
+                alert(JSON.parse(data.responseText).message);
+            }
+            else alert('Something went wrong');
+        });
+    }
+</script>
+{% endblock %}

@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^about/', About.as_view(), name='about'),
     url(r'^contact/', Contact.as_view(), name='contact'),
     #url(r'^markdown/', include('django_markdown.urls')),
+    url(r'^til/', include('til.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^$', include('blog.urls')),
 ]
