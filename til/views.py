@@ -66,9 +66,9 @@ def get_til(request):
     rand = request.GET.get('random')
     if rand:
         import random
-        count = Til.objects.count()
+        count = TIL.objects.count()
         r = random.randrange(1, count+1)
-        til = Til.objects.get(id=r)
+        til = TIL.objects.get(id=r)
         retobjs.append(til)
     else:
         tils = TIL.objects.filter(**filtercrit)[offset*RESULTSIZE:(offset+1)*RESULTSIZE]
