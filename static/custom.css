@@ -122,7 +122,7 @@ hr {
 
 .navbar-link>li a
 {
-    color:#555;
+    color:#444;
 }
 
 .user-pic
@@ -155,7 +155,7 @@ hr {
 
 .tag-element a:hover
 {
-    color:#555;
+    color:#444;
 }
 .comment
 {
@@ -256,7 +256,7 @@ hr {
 #article-content, .article-content 
 {
     font-family:Vollkorn;
-    color:#555;
+    color:#444;
     font-size:1.9em;
     margin:auto;
     padding-right:8em;
@@ -267,7 +267,7 @@ hr {
 .aboutme-content
 {
     font-family:Vollkorn; 
-    color:#555;
+    color:#444;
     font-size:1.5em;
     margin-left:4%;
     padding-right:12%;
@@ -277,7 +277,7 @@ hr {
 .contact-content
 {
     font-family:Vollkorn; 
-    color:#555;
+    color:#444;
     font-size:1.7em;
     margin-left:4%;
     padding-right:7%;
