@@ -255,12 +255,13 @@ hr {
 
 #article-content, .article-content 
 {
-    font-family:Vollkorn; 
+    font-family:Vollkorn;
     color:#555;
     font-size:1.9em;
     margin:auto;
-    padding-right:13%;
-    padding-left:13%;
+    padding-right:8em;
+    padding-left:8em;
+    line-height:2em;
 }
 
 .aboutme-content
