@@ -30,7 +30,7 @@ class Home(View):
         next_article = None
         if not slug: # means the default blog page, get latest article
             try: # in case no articles are there
-                articles = Article.objects.filter(**filterargs).order_by('-id')
+                articles = Article.objects.filter(**filterargs).order_by('-published_date')
                 article = articles[0]
                 if len(articles)>1:
                     previous_article = articles[1]
