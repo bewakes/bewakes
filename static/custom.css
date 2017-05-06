@@ -7,8 +7,7 @@ body
 
 code
 {
-    font-weight:bold;
-    font-size:1.1em;
+    font-size:0.8em;
 }
 
 a.nodecor
@@ -271,6 +270,11 @@ hr {
     /*padding-right:8em;
     padding-left:8em;*/
     line-height:2em;
+}
+
+p
+{
+    margin-top:1.2em;
 }
 
 .aboutme-content

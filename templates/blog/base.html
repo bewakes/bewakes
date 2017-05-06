@@ -1,7 +1,10 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>BeWakes</title>
+        <title>{% if article.title %} {{article.title}}
+            {% else %}BeWakes
+            {% endif %}
+        </title>
         <meta property="og:url" content="http://bewakes.udghos.com" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{{article.title}}" />
