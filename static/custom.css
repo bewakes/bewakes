@@ -2,6 +2,7 @@ body
 {
     background-color:#fff;
     font-family:Vollkorn;
+    overflow-x: hidden;
 }
 
 code
@@ -267,8 +268,8 @@ hr {
     color:#444;
     font-size:1.9em;
     margin:auto;
-    padding-right:8em;
-    padding-left:8em;
+    /*padding-right:8em;
+    padding-left:8em;*/
     line-height:2em;
 }
 
@@ -277,9 +278,9 @@ hr {
     font-family:Vollkorn; 
     color:#444;
     font-size:1.5em;
-    margin-left:0%;
-    padding-right:12%;
-    padding-left:12%;
+}
+.aboutme-content hr {
+    margin-right:25%;
 }
 
 .contact-content

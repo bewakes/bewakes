@@ -12,7 +12,8 @@ MathJax.Hub.Config({
         <div id="contents">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="coal-md-12">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
                         <div id="article">
                             <div id="article-title">
                                 <span id="article-title-text"> {{article.title}}</span>
@@ -31,7 +32,7 @@ MathJax.Hub.Config({
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <div id="article-content" class="text-justify">
+                            <div id="article-content" class="text-justify text-center">
                                 {% load markdown %}
                                 {% with markdowned=article.content|markdownify %}
                                 <p>{{markdowned | safe}}</p>
@@ -58,6 +59,7 @@ MathJax.Hub.Config({
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-2"></div>
                     <!--<div class="col-md-3">
                         <div id="side-pane">
                             <h2><u>Recent posts</u></h2><br>
