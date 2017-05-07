@@ -9,3 +9,4 @@ wsgi.py
 migrations/
 !blogimage.jpg
 media
+*.jpg

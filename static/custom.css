@@ -271,6 +271,12 @@ hr {
     padding-left:8em;*/
     line-height:2em;
 }
+#article-content img
+{
+    display:block;
+    margin:auto;
+}
+
 
 p
 {
