@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404, Http404
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core.urlresolvers import reverse
+from django.core.files import File
 from django.views.generic import View
-from blog.models import Article, Tag, Comment
+from blog.models import Article, Tag, Comment, ArticleImage
 from datetime import datetime
 import json
+from django.conf import settings
+import os
 
 # Create your views here.
 
@@ -143,3 +146,42 @@ def searchresult(request):
         context['data'] = art_list
     jsontxt = json.dumps(context)
     return HttpResponse(jsontxt)
+
+class ImageUpload(View):
+    def get(self, request):
+        if not request.user.is_superuser and False:
+            return HttpResponse("", status=403)
+        # get articles list
+        articles =  Article.objects.all().order_by('-id')[:20] # only about current 20 articles
+        context = {'articles':articles}
+        return render(request, 'blog/upload_image.html', context)
+
+    def post(self, request):
+        if not request.user.is_superuser:
+            return HttpResponse("", status=403)
+
+        # get data
+        try:
+            article_id = int(request.POST.get('article_id'))
+        except:
+            return JsonResponse({'message':'invalid article id'}, status=400)
+
+        customname = request.POST.get('customname')
+        if not customname:
+            return JsonResponse({'message':'empty customname'}, status=400)
+        image = ArticleImage()
+        image.article_id = article_id
+        image.customname = customname
+        image.image = request.FILES['image']
+        extension = image.image.name.split('.')[-1]
+
+        filename = os.path.join(settings.MEDIA_ROOT, 'blog-images')
+        filename = os.path.join(filename, customname+'.'+extension)
+
+        print(filename)
+        image.image.save(filename, request.FILES['image'])
+        image.save()
+
+        return JsonResponse({})
+
+

@@ -1,0 +1,66 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 class="text-center"> Select image for article</h2>
+            <form id="image-form">
+                {% csrf_token %}
+                <table class="table table-striped">
+                    <tr class="form-item">
+                        <td><label>Choose Image:</label></td>
+                        <td><input type="file" name="image"/><br></td>
+                    </tr>
+                    <tr>
+                        <td><label>Custom name:</label></td>
+                        <td><input type="text" name="customname"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Choose Article:</label></td>
+                        <td><select name="article_id">
+                            {% for article in articles %}
+                            <option value="{{article.id}}">{{article.title}}</option>
+                            {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button class="btn btn-info btn-block" type="button" onclick="uploadFile()"><b>Upload</b></button></td>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function uploadFile() {
+        var data = new FormData($('form')[0]);
+        data.append('image', $('input[type=file]')[0]);
+        $.ajax({
+            url: '/blog/upload-image/',
+            type: 'POST',
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (data) { alert('success');$('input[type=text],input[type=file]').val('');},
+            error: function(data) {alert('error')}
+        });
+        /*
+        $.post('/blog/upload-image/', {data:data}, function(data) {
+        })
+        .fail(function(data) {
+            if(data.status==403) alert('You are forbidden');
+            else if (data.status==400) {
+                alert(JSON.parse(data.responseText).message);
+            }
+            else alert('Something went wrong');
+        });
+        */
+    }
+</script>
+{% endblock %}

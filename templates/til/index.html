@@ -49,7 +49,7 @@
         })
         .fail(function(data) {
             if(data.status==403) {
-                alert('Your are forbidden');
+                alert('You are forbidden');
             }
             else if (data.status==400) {
                 alert(JSON.parse(data.responseText).message);

@@ -7,7 +7,7 @@ from datetime import datetime
 
 class Tag(models.Model):
     name = models.CharField(max_length=30)
-    
+
     def __str__(self):
         return self.name
 
@@ -29,6 +29,13 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class ArticleImage(models.Model):
+    image = models.ImageField()
+    article = models.ForeignKey('Article')
+
+    def __str__(self):
+        return self.image.name
 
 
 class Comment(models.Model):

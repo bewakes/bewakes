@@ -8,3 +8,4 @@ manage.py
 wsgi.py
 migrations/
 !blogimage.jpg
+media
