@@ -3,7 +3,9 @@ from django.db import models
 from django_markdown.widgets import MarkdownWidget
 from django_markdown.models import MarkdownField
 from django.template.defaultfilters import slugify
+from django.dispatch import receiver
 from datetime import datetime
+import os
 
 class Tag(models.Model):
     name = models.CharField(max_length=30)
@@ -36,6 +38,16 @@ class ArticleImage(models.Model):
 
     def __str__(self):
         return self.image.name
+
+@receiver(models.signals.post_delete, sender=ArticleImage)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    Deletes file from filesystem
+    when corresponding `MediaFile` object is deleted.
+    """
+    if instance.image:
+        if os.path.isfile(instance.image.path):
+            os.remove(instance.image.path)
 
 
 class Comment(models.Model):
