@@ -31,6 +31,13 @@ a.nodecor:hover
     margin:auto;
 }
 
+#logo-caption {
+    font-family:Bitter;
+    font-weight: bold;
+    color:black;
+    font-size:0.65em;
+}
+
 #blog-title
 {
     margin-top:20px;

@@ -5,7 +5,7 @@
             {% else %}BeWakes
             {% endif %}
         </title>
-        <meta property="og:url" content="http://bewakes.udghos.com" />
+        <meta property="og:url" content="http://bewakes.udghos.com/blog/{{article.slug}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{{article.title}}" />
         <meta property="og:description"   content="{{article.content|truncatechars:50}}" />
@@ -33,6 +33,7 @@
                     <div class="col-md-4"></div>
                     <div id="blog-title" class="col-md-4">{# for title #}
                         <img id="wakes" src="{%static 'img/wakes.png' %}">
+                        <div id="logo-caption">miles to go before I sleep..</div>
                     </div>
                     <div class="col-md-4"></div>
                 </div>
