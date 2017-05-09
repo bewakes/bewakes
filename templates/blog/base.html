@@ -5,7 +5,7 @@
             {% else %}BeWakes
             {% endif %}
         </title>
-        <meta property="og:url" content="http://bewakes.udghos.com/blog/{{article.slug}}" />
+        <meta property="og:url" content="https://bewakes.udghos.com/blog/{{article.slug}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{{article.title}}" />
         <meta property="og:description"   content="{{article.content|truncatechars:50}}" />
@@ -125,6 +125,16 @@
                     $("#search-result").hide();
                 }
             }
+        $.post(
+        'https://graph.facebook.com',
+        {
+            id: 'https://bewakes.udghos.com/blog/{{article.slug}}',
+            scrape: true
+        },
+        function(response){
+            console.log(response);
+        }
+);
 
     </script>
 
