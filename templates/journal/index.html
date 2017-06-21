@@ -4,20 +4,15 @@
 <div id="contents">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <h2>Recent Journals</h2>
-                <div id="til-items">
-                </div>
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
                 {% if authenticated %}
-                <h2>Add Journal</h2>
+                <h2 align="center">Add Journal</h2>
                 <form id="journal-form">
                     {% csrf_token %}
                     <table class="table table-striped">
                         <tr class="form-item">
                             <td><label>Content:</label></td>
-                            <td><textarea cols="60" rows="10" name="content"></textarea></td>
+                            <td><textarea cols="100" rows="12" name="content"></textarea></td>
                         </tr>
                         <tr>
                             <td></td>
