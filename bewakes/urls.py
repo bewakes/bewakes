@@ -26,6 +26,7 @@ urlpatterns = [
     #url(r'^markdown/', include('django_markdown.urls')),
     url(r'^til/', include('til.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^journal/', include('journal.urls')),
     url(r'^$', include('blog.urls')),
 ]
 urlpatterns += static(r'media/', document_root=settings.MEDIA_ROOT)

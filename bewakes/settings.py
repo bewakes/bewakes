@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'django_markdown',
     'django_markup',
-    'til'
+    'journal',
+    'til',
 ]
 
 MIDDLEWARE = [
