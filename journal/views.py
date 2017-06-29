@@ -4,6 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from journal.models import Journal
 from django.http import JsonResponse, HttpResponse
 import json
+from journal.helpers import xor_encrypt
+import os
 
 # Create your views here.
 
@@ -20,7 +22,12 @@ class JournalHome(View):
         if not request.user.is_authenticated():
             return JsonResponse({}, status=403)
         try:
+            password = os.environ.get('JOURNAL_PASS', '')
             content = request.POST.get('content', '').strip()
+            if not password:
+                content = "####NOT ENCRYPTED####"+content
+            else:
+                content = xor_encrypt(content, password)
             if not content: raise Exception('content')
 
             journal = Journal.objects.create(content=content)
