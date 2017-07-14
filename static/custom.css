@@ -115,7 +115,6 @@ hr {
 
 #blogpost-date
 {
-    margin-top:-10px;
     margin-bottom:15px;
     font-weight:bold;
     color:#aaa;
@@ -276,7 +275,7 @@ hr {
     margin:auto;
     /*padding-right:8em;
     padding-left:8em;*/
-    line-height:2em;
+    line-height:1.62em;
 }
 #article-content img
 {
@@ -287,7 +286,7 @@ hr {
 
 p
 {
-    margin-top:1.2em;
+    margin-top:0.9em;
 }
 
 .aboutme-content
