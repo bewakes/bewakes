@@ -15,7 +15,7 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    tag = models.ManyToManyField('Tag')
+    tag = models.ManyToManyField('Tag', related_name='articles')
     content = models.TextField()
     published_date = models.DateTimeField(default=datetime.now())
     modified_date = models.DateTimeField(auto_now=True)

@@ -28,6 +28,15 @@ class Home(View):
         if request.user.is_superuser:
             filterargs = {}
 
+        if not slug:
+            ## get tags
+            alltags = Tag.objects.all()
+            tags = []
+            for t in alltags:
+                if t.articles.count() > 0:
+                    tags.append(t)
+            self.context['tags'] = tags
+            return render(request, 'blog/index.html', self.context)
         article = None
         previous_article = None
         next_article = None
@@ -68,7 +77,7 @@ class Home(View):
         comments = Comment.objects.filter(article=article)
         self.context['comments'] = comments
 
-        return render(request, 'blog/index.html', self.context)
+        return render(request, 'blog/article.html', self.context)
 
 class CommentProcess(View):
     def post(self, request):
