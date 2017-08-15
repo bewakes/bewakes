@@ -70,7 +70,7 @@ class Home(View):
 
         self.context['next_article'] = next_article
         self.context['previous_article'] = previous_article
-        article_tags = Tag.objects.filter(article=article)
+        article_tags = article.tag.all()
         self.context['article_tags'] = article_tags
         self.context['article'] = article
         self.context['tags'] = self.tags
