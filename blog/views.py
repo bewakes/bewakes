@@ -13,7 +13,7 @@ import os
 # Create your views here.
 
 class Home(View):
-    context = {}
+    
     tags = None # for tag cloud
 
     # def __init__(self): # to populate with the tag clouds
@@ -23,7 +23,7 @@ class Home(View):
     #     self.context['recent_posts'] = recents
 
     def get(self, request, slug=None):
-
+	context = {}
         filterargs = {'publish':True}
         if request.user.is_superuser:
             filterargs = {}
@@ -35,8 +35,8 @@ class Home(View):
             for t in alltags:
                 if t.articles.count() > 0:
                     tags.append(t)
-            self.context['tags'] = tags
-            return render(request, 'blog/index.html', self.context)
+            context['tags'] = tags
+            return render(request, 'blog/index.html', context)
         article = None
         previous_article = None
         next_article = None
@@ -68,16 +68,16 @@ class Home(View):
                 next_article = articles[index-1]
                 previous_article = articles[index+1]
 
-        self.context['next_article'] = next_article
-        self.context['previous_article'] = previous_article
+        context['next_article'] = next_article
+        context['previous_article'] = previous_article
         article_tags = article.tag.all()
-        self.context['article_tags'] = article_tags
-        self.context['article'] = article
-        self.context['tags'] = self.tags
+        context['article_tags'] = article_tags
+        context['article'] = article
+        context['tags'] = self.tags
         comments = Comment.objects.filter(article=article)
-        self.context['comments'] = comments
+        context['comments'] = comments
 
-        return render(request, 'blog/article.html', self.context)
+        return render(request, 'blog/article.html', context)
 
 class CommentProcess(View):
     def post(self, request):
