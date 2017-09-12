@@ -23,7 +23,7 @@ class Home(View):
     #     self.context['recent_posts'] = recents
 
     def get(self, request, slug=None):
-	context = {}
+        context = {}
         filterargs = {'publish':True}
         if request.user.is_superuser:
             filterargs = {}
