@@ -10,3 +10,4 @@ migrations/
 !blogimage.jpg
 media
 *.jpg
+prod-settings.py
