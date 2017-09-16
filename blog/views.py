@@ -33,7 +33,7 @@ class Home(View):
             alltags = Tag.objects.all()
             tags = []
             for t in alltags:
-                if t.articles.count() > 0:
+                if t.articles.filter(**filterargs).count() > 0:
                     tags.append(t)
             context['tags'] = tags
             context['items'] = HTMLJSItem.objects.all()
