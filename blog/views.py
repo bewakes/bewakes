@@ -4,7 +4,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, JsonRes
 from django.core.urlresolvers import reverse
 from django.core.files import File
 from django.views.generic import View
-from blog.models import Article, Tag, Comment, ArticleImage
+from blog.models import Article, Tag, Comment, ArticleImage, HTMLJSItem
 from datetime import datetime
 import json
 from django.conf import settings
@@ -36,6 +36,7 @@ class Home(View):
                 if t.articles.count() > 0:
                     tags.append(t)
             context['tags'] = tags
+            context['items'] = HTMLJSItem.objects.all()
             return render(request, 'blog/index.html', context)
         article = None
         previous_article = None

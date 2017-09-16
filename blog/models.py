@@ -1,4 +1,5 @@
 import markdown
+from django.conf import settings
 from django.db import models
 from django_markdown.widgets import MarkdownWidget
 from django_markdown.models import MarkdownField
@@ -6,6 +7,7 @@ from django.template.defaultfilters import slugify
 from django.dispatch import receiver
 from datetime import datetime
 import os
+import re
 
 class Tag(models.Model):
     name = models.CharField(max_length=30)
@@ -55,3 +57,17 @@ class Comment(models.Model):
     article = models.ForeignKey('Article')
     comment_date = models.DateTimeField()
     username = models.CharField(max_length=75)
+
+
+class HTMLJSItem(models.Model):
+    # main file is index.html always
+    name = models.CharField(max_length=50)
+    path = models.CharField(max_length=50) # with respect to settings.HTMLJS_ROOT
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def url(self):
+        return "https://bewakes.com/htmljs/{}/index.html".format(self.path.strip('/'))
+
