@@ -3,12 +3,14 @@
         <title>Langton's Ant</title>
         <style type="text/css">
             body {
+                max-width:100%;
                 margin:0px;
                 background-color:#dddddd;
+                overflow-x:hidden;
             }
             canvas {
-                margin:10px;
                 border:solid 1px;
+                margin-left:10px;
             }
             td,th {
                 border: solid 1px black;
@@ -24,18 +26,30 @@
         </style>
     </head>
     <body>
-        <h1 color="green"> &lt;-<a href="https://bewakes.com"> Back to Home </a>&lt;-<h1>
-        <h2>Steps: <span id="counter"></span></h2>
-        <div>
-            <canvas id="grid" style="float:left"></canvas>
+        <b><i color="green"> &lt;-<a href="https://bewakes.com"> Back to Home </a>&lt;-</i></b>
+        <h2># Steps: <span id="counter"></span></h2>
+        <hr>
+        <div style="min-width:50%;max-width:50%;float:left">
+            <canvas id="grid" style=""></canvas>
+        </div>
+        <div style="max-width:50%;float:left">
             <div>
-                <h2> Define rules:
-                </h2>
+                <h2> Define rules:</h2>
+                <div>
+                    Sample rule (Note state should be color recognized by html)<br>
+                    <table>
+                        <tr><th>IN STATE</th><th>TO STATE</th><th>TURN</th></tr>
+                        <tr><td>white</td><td>blue</td><td>left</td></tr>
+                        <tr><td>blue</td><td>red</td><td>right</td></tr>
+                        <tr><td>red</td><td>white</td><td>left</td></tr>
+                    </table>
+                    <br>
+                </div>
                 <table>
                     <tr>
-                        <th>in State(Color)</th>
-                        <th>Change State(color) to:</th>
-                        <th>Turn(left/right) and move forward</th>
+                        <th>IN State(Color)</th>
+                        <th>Change State(color) TO:</th>
+                        <th>TURN (left/right) and move forward</th>
                         <th>Action</th>
                     </tr>
                     <tbody id="rule">
