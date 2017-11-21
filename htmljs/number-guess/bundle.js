@@ -19106,7 +19106,7 @@ var Instructions = function (_Component) {
             return _this.state.symbol + _this.instructions[_this.state.step];
         };
 
-        _this.instructions = ["Choose one of the numbers on the left side[Not 1-digit number].", "Sum the digits of the number.", "Subtract the sum from the original number.", " is the symbol you got, ain't it?"];
+        _this.instructions = ["Choose one of the numbers from the left.", "Sum the digits of the number.", "Subtract the sum from the original number.", " is the symbol you got, ain't it?"];
         _this.state = { step: 0 };
         return _this;
     }
