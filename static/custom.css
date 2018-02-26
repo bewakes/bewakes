@@ -1,7 +1,7 @@
 body 
 {
     background-color:#FEFCFF;
-    font-family:Vollkorn;
+    font-family: 'Noto Serif', serif;
     overflow-x: hidden;
 }
 
@@ -261,7 +261,7 @@ hr {
 
 #article-title-text 
 {
-    font-family:Vollkorn;
+    font-family: 'Noto Serif',serif;
     font-size:3.7em;
     text-align:center;
     color:#333;
@@ -269,7 +269,7 @@ hr {
 
 #article-content, .article-content 
 {
-    font-family:Vollkorn;
+    font-family: 'Noto Serif',serif;
     color:#444;
     font-size:1.9em;
     background-color:#FEFCFF;
@@ -292,7 +292,7 @@ p
 
 .aboutme-content
 {
-    font-family:Vollkorn; 
+    font-family:'Noto Serif',serif; 
     color:#444;
     font-size:1.5em;
 }
@@ -302,7 +302,7 @@ p
 
 .contact-content
 {
-    font-family:Vollkorn; 
+    font-family:'Noto Serif',serif; 
     color:#444;
     font-size:1.7em;
     margin-left:4%;
