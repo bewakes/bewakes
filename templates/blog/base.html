@@ -8,9 +8,9 @@
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:description" content="{{article.content|truncatechars:50}}" />
         <meta name="twitter:title" content="{{article.title}}" />
-        <meta name="twitter:url" content="https://bewakes.udghos.com/blog/{{article.slug}}" />
+        <meta name="twitter:url" content="https://bewakes.com/blog/{{article.slug}}" />
         
-        <meta property="og:url" content="https://bewakes.udghos.com/blog/{{article.slug}}" />
+        <meta property="og:url" content="https://bewakes.com/blog/{{article.slug}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{{article.title}}" />
         <meta property="og:description"   content="{{article.content|truncatechars:50}}" />
@@ -150,7 +150,7 @@
         $.post(
         'https://graph.facebook.com',
         {
-            id: 'https://bewakes.udghos.com/blog/{{article.slug}}',
+            id: 'https://bewakes.com/blog/{{article.slug}}',
             scrape: true
         },
         function(response){
