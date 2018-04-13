@@ -29,7 +29,6 @@ class Article(models.Model):
         if not self.id:
             # newly created
             self.slug = slugify(self.title)
-        self.content = self.content.replace(' \\', r' \\\').replace('\\\\\\', r'\\\')
         super(Article, self).save(*args, **kwargs)
 
     def __str__(self):
