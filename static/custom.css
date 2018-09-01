@@ -394,7 +394,7 @@ p
     margin-bottom:0px;
 }
 
-footer {
+#footer-bottom {
     position: absolute;
     width: 100%;
     bottom: 0;

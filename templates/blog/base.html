@@ -121,6 +121,16 @@
         <script src="{% static 'custom.js' %}"></script>
 
         <script>
+            (function () {
+                var elem = document.getElementsByTagName('footer')[0];
+                console.log(document.body.scrollHeight);
+                console.log(window.innerHeight);
+                if(document.body.scrollHeight <= window.innerHeight) {
+                    elem.style.position = "absolute";
+                    elem.style.bottom= "0";
+                    elem.style.width = "100%";
+                }
+            })();
         // when the contents of the searchbox change
         $("#searchbox").on('input', function(e) { 
             var query = $("#searchbox").val();
