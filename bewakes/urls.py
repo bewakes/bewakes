@@ -30,3 +30,4 @@ urlpatterns = [
     url(r'^$', include('blog.urls')),
 ]
 urlpatterns += static(r'media/', document_root=settings.MEDIA_ROOT)
+urlpatterns += static(r'htmljs/', document_root=settings.HTMLJS_ROOT)
