@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div  id="article" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" id="article-title">
+            <span id="article-title-text">
+                Tags
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-7 contact-content text-justify">
+            <div class="text-center">
+                <hr>
+                {% if not tags %}
+                No tags<br>
+                {% endif %}
+                {% for x in tags %}
+                <a class="nodecor" href="{% url 'posts'%}?tag={{x.name}}">{{x.name}}</a> 
+                <small style="font-size:0.65em;color:#999">{{x.published_date}}</small>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
