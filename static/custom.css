@@ -1,6 +1,5 @@
 body 
 {
-    background-color:#FEFCFF;
     font-family: 'Noto Serif', serif;
     overflow-x: hidden;
 }
@@ -55,7 +54,7 @@ hr {
 
 .short-hr
 {
-    width:85%;
+    width:90%;
     border-color:#bbb;
 }
 
@@ -272,11 +271,13 @@ hr {
     font-family: 'Noto Serif',serif;
     color:#444;
     font-size:1.9em;
-    background-color:#FEFCFF;
     margin:auto;
     /*padding-right:8em;
     padding-left:8em;*/
     line-height:1.62em;
+}
+#homepage-content {
+    font-size: 1.6em;
 }
 #article-content img
 {
@@ -391,6 +392,12 @@ p
 .aboutme-content hr {
     margin-top:0px;
     margin-bottom:0px;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 @media (max-width: 480px) {

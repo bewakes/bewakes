@@ -63,9 +63,7 @@
                 </div>
                 <hr><hr class="short-hr">
                 <div class="row"> {# for navigation links and search #}
-                    <div class="col-md-3">
-                    </div>
-                    <div class="col-md-6">{# for links #}
+                    <div class="col-md-12">{# for links #}
                         <ul class="list-inline text-center navbar-link" style="font-size:1.2em">
                             <li><a href="{% url 'index' %}">HOME</a>
                                 <span class="link-separator">/</span>
@@ -73,15 +71,22 @@
                             <li><a href="{% url 'posts' %}">POSTS</a>
                                 <span class="link-separator">/</span>
                             </li>
+                            <li><a href="{% url 'posts' %}">MISC</a>
+                                <span class="link-separator">/</span>
+                            </li>
+                            <li><a href="{% url 'contact' %}">TAGS</a>
+                                <span class="link-separator">/</span>
+                            </li>
                             <li><a href="{% url 'contact' %}">CONTACT</a>
                                 <span class="link-separator">/</span>
                             </li>
                             <li><a href="{% url 'about' %}">ABOUT</a>
                             </li>
+                            
                         </ul>
-                        <hr>
+                        <hr style="width:70%">
                     </div>
-                    <div class="col-md-3"> {# for search #}
+                    <div class="col-md-1" style="display:none"> {# for search #}
                         <span id="search-icon" onclick="searchIconClick()" class="glyphicon glyphicon-search"></span>
                         <input id="searchbox" type="text" placeholder="Search for Articles"/>
                         <div id="search-result">{# display search result #}
@@ -103,7 +108,7 @@
                     <div class="col-md-6">
                         <div class="text-center aboutme-content">
                             <b>Copyright &copy; 2018</b><br>
-                            Articles by <span ><a class="undecorated-a" href="/about/">Bibek Pandey(bewakes)</a></span><br>
+                            By <span ><a class="undecorated-a" href="/about/">bewakes</a></span><br>
                         </div>
                     </div>
                     <div class="col-md-3"></div>
