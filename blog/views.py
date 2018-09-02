@@ -137,10 +137,16 @@ class Posts(View):
 
 class Tags(View):
     def get(self, request):
-        context = {}
-        context['tags'] = Tag.objects.all().order_by('name')
+        context = {'title': 'Tags'}
+        context['items'] = [
+            {
+                'name': x.name,
+                'path': '/blog/posts/?tag={}'.format(x.name)
+            }
+            for x in Tag.objects.all().order_by('name')
+        ]
 
-        return render(request, 'blog/tags.html', context)
+        return render(request, 'blog/list-link.html', context)
 
 
 @csrf_exempt
@@ -201,3 +207,15 @@ class ImageUpload(View):
         image.save()
 
         return JsonResponse({})
+
+
+class MiscView(View):
+    def get(self, request):
+        context = {'items': [], 'title': 'Miscellaneous Items'}
+        for f in HTMLJSItem.objects.all():
+            context['items'].append({
+                'name': f.name,
+                'path': os.path.join(
+                    '/html-js-stuffs', os.path.join(f.path, 'index.html'))
+            })
+        return render(request, 'blog/list-link.html', context)

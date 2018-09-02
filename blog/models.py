@@ -62,7 +62,7 @@ class Comment(models.Model):
 class HTMLJSItem(models.Model):
     # main file is index.html always
     name = models.CharField(max_length=50)
-    path = models.CharField(max_length=50) # with respect to settings.HTMLJS_ROOT
+    path = models.CharField(max_length=50)  # with respect to settings.HTMLJS_ROOT
 
     def __str__(self):
         return self.name
@@ -70,4 +70,3 @@ class HTMLJSItem(models.Model):
     @property
     def url(self):
         return "https://bewakes.com/htmljs/{}/index.html".format(self.path.strip('/'))
-

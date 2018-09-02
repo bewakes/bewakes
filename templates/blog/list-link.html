@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12" id="article-title">
             <span id="article-title-text">
-                Tags
+                {{title}}
             </span>
         </div>
     </div>
@@ -15,13 +15,12 @@
         <div class="col-md-7 contact-content text-justify">
             <div class="text-center">
                 <hr>
-                {% if not tags %}
-                No tags<br>
+                {% if not items %}
+                No {{title}} found<br>
                 {% endif %}
-                {% for x in tags %}
-                <a class="nodecor" href="{% url 'posts'%}?tag={{x.name}}">{{x.name}}</a> 
-                <small style="font-size:0.65em;color:#999">{{x.published_date}}</small>
-                <hr>
+                {% for x in items %}
+                <a class="nodecor" href="{{x.path}}">{{x.name}}</a> 
+                    <hr>
                 {% endfor %}
             </div>
         </div>
