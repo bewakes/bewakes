@@ -202,7 +202,6 @@ class ImageUpload(View):
         filename = os.path.join(settings.MEDIA_ROOT, 'blog-images')
         filename = os.path.join(filename, customname+'.'+extension)
 
-        print(filename)
         image.image.save(filename, request.FILES['image'])
         image.save()
 
@@ -212,7 +211,19 @@ class ImageUpload(View):
 class MiscView(View):
     def get(self, request):
         context = {'items': [], 'title': 'Miscellaneous Items'}
-        for f in HTMLJSItem.objects.all():
+        for f in HTMLJSItem.objects.exclude(path__icontains='games/'):
+            context['items'].append({
+                'name': f.name,
+                'path': os.path.join(
+                    '/html-js-stuffs', os.path.join(f.path, 'index.html'))
+            })
+        return render(request, 'blog/list-link.html', context)
+
+
+class GamesView(View):
+    def get(self, request):
+        context = {'items': [], 'title': 'Mini Games'}
+        for f in HTMLJSItem.objects.filter(path__icontains='games/'):
             context['items'].append({
                 'name': f.name,
                 'path': os.path.join(
