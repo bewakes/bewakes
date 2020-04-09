@@ -25,6 +25,14 @@
     font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
+#my-voice {
+    letter-spacing: 0.22em;
+}
+
+#logo-img {
+    margin-bottom: 2px;
+}
+
 .masthead h1.header {
     margin-top: 1em;
     margin-bottom: 0em;
