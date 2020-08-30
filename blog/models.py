@@ -1,13 +1,9 @@
-import markdown
-from django.conf import settings
 from django.db import models
-from django_markdown.widgets import MarkdownWidget
-from django_markdown.models import MarkdownField
 from django.template.defaultfilters import slugify
 from django.dispatch import receiver
 from datetime import datetime
 import os
-import re
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=30)
@@ -15,11 +11,12 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
 class Article(models.Model):
     title = models.CharField(max_length=200)
     tag = models.ManyToManyField('Tag', related_name='articles')
     content = models.TextField()
-    published_date = models.DateTimeField(default=datetime.now())
+    published_date = models.DateTimeField(default=datetime.now)
     modified_date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(blank=True)
     publish = models.BooleanField(default=True)
@@ -34,12 +31,14 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+
 class ArticleImage(models.Model):
     image = models.ImageField()
     article = models.ForeignKey('Article')
 
     def __str__(self):
         return self.image.name
+
 
 @receiver(models.signals.post_delete, sender=ArticleImage)
 def auto_delete_file_on_delete(sender, instance, **kwargs):

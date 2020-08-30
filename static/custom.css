@@ -1,7 +1,17 @@
-body 
+body
 {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Vollkorn', serif;
     overflow-x: hidden;
+    color: #444;
+}
+
+pre
+{
+    font-size: 0.9rem;
+}
+
+.codehilite {
+    padding: 10px;
 }
 
 code
@@ -39,7 +49,7 @@ a.nodecor:hover
 
 #blog-title
 {
-    margin-top:20px;
+    margin-bottom:25px;
 }
 
 h1.text-bold-black
@@ -145,8 +155,7 @@ hr {
 .tag-element, #side-pane a
 {
     color:#777;
-    display:block;
-    margin-left:-10px;
+    display: inline;
 }
 .tag-element a
 {
@@ -189,22 +198,6 @@ hr {
     color:#666;
     font-size:12px;
 }
-
-.glypicon.glyphicon-search:hover
-{
-    color:black;
-}
-
-#searchbox:focus
-{
-    background:#eee;
-}
-
-#search-icon
-{
-    margin-left:-55px;
-}
-
 #content
 {
     margin-top:30px;
@@ -250,6 +243,7 @@ hr {
 }
 #article-title
 {
+    margin-top: 15px;
     text-align:center;
 }
 
@@ -258,26 +252,46 @@ hr {
     text-decoration:none;
 }
 
-#article-title-text 
+#article-content h1 {
+    margin-top: 2.5rem;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-item a {
+    color: white;
+    font-family: unset;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-item a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+#article-title-text
 {
-    font-family: 'Noto Serif',serif;
-    font-size:3.7em;
+    font-family: 'Vollkorn',serif;
+    margin-top: 20px;
+    font-size: 2.7rem;
     text-align:center;
-    color:#333;
 }
 
 #article-content, .article-content 
 {
-    font-family: 'Noto Serif',serif;
-    color:#444;
-    font-size:1.9em;
+    font-family: 'Vollkorn',serif;
+    font-size: 1.5rem;
     margin:auto;
     /*padding-right:8em;
     padding-left:8em;*/
-    line-height:1.62em;
+    /* line-height:1.62em; */
 }
 #homepage-content {
     font-size: 1.6em;
+
 }
 #article-content img
 {
@@ -293,7 +307,7 @@ p
 
 .aboutme-content
 {
-    font-family:'Noto Serif',serif; 
+    font-family:'Vollkorn',serif;
     color:#444;
     font-size:1.5em;
 }
@@ -303,7 +317,7 @@ p
 
 .contact-content
 {
-    font-family:'Noto Serif',serif; 
+    font-family:'Vollkorn',serif; 
     color:#444;
     font-size:1.7em;
     margin-left:4%;

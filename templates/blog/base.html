@@ -9,94 +9,63 @@
         <meta name="twitter:description" content="{{article.content|truncatechars:50}}" />
         <meta name="twitter:title" content="{{article.title}}" />
         <meta name="twitter:url" content="https://bewakes.com/blog/{{article.slug}}" />
-        
         <meta property="og:url" content="https://bewakes.com/blog/{{article.slug}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{{article.title}}" />
         <meta property="og:description"   content="{{article.content|truncatechars:50}}" />
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bitter|Noto+Serif|Lato|Vollkorn">
         <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-2434436168189342",
-            enable_page_level_ads: true
-          });
-        </script>
-        
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-106400493-1', 'auto');
-          ga('send', 'pageview');
-        </script>
     </head>
 
     <body>
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=330985767105473";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
         {# header #}
         <div id="page-header">
-            <div class="container">
-                <div class="row">{# for blog title #}
-                    <div class="col-md-4"></div>
-                    <div id="blog-title" class="col-md-4">{# for title #}
-                        <img id="wakes" src="{%static 'img/wakes.png' %}">
-                        <div id="logo-caption">miles to go before I sleep..</div>
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
-                <div class="row"> {# subitle of the blog #}
-                </div>
-                <hr><hr class="short-hr">
-                <div class="row"> {# for navigation links and search #}
-                    <div class="col-md-12">{# for links #}
-                        <ul class="list-inline text-center navbar-link" style="font-size:1.2em">
-                            <li><a href="{% url 'index' %}">HOME</a>
-                                <span class="link-separator">/</span>
-                            </li>
-                            <li><a href="{% url 'posts' %}">POSTS</a>
-                                <span class="link-separator">/</span>
-                            </li>
-                            <li><a href="{% url 'misc' %}">MISC</a>
-                                <span class="link-separator">/</span>
-                            </li>
-                            <li><a href="{% url 'games' %}">GAMES</a>
-                                <span class="link-separator">/</span>
-                            </li>
-                            <li><a href="{% url 'tags' %}">TAGS</a>
-                                <span class="link-separator">/</span>
-                            </li>
-                            <li><a href="{% url 'contact' %}">CONTACT</a>
-                                <span class="link-separator">/</span>
-                            </li>
-                            <li><a href="{% url 'about' %}">ABOUT</a>
-                            </li>
-                            
-                        </ul>
-                        <hr style="width:70%">
-                    </div>
-                    <div class="col-md-1" style="display:none"> {# for search #}
-                        <span id="search-icon" onclick="searchIconClick()" class="glyphicon glyphicon-search"></span>
-                        <input id="searchbox" type="text" placeholder="Search for Articles"/>
-                        <div id="search-result">{# display search result #}
-                            <ul id="search-result-list" class="list-group">
-                            </ul>
+            <div class="container-fluid">
+                <div class="jumbotron p-2 pt-5 text-white rounded bg-dark" style="background-color: #232328 !important; border-radius: 0px !important">
+                    <div class="row">{# for blog title #}
+                        <div class="col-md-4"></div>
+                        <div id="blog-title" class="col-md-4 text-center">{# for title #}
+                            <h1 style="color: white; font-size: 4.4rem;"> BeWakes</h1>
                         </div>
+                        <div class="col-md-4"></div>
                     </div>
+
+                    <nav class="navbar navbar-expand-sm bg-light justify-content-center" style="background-color: transparent !important">
+                        <!-- Toggler/collapsibe Button -->
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <!-- Links -->
+                      <ul class="navbar-nav" id="collapsibleNavbar">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'posts' %}">POSTS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'misc' %}">MISC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'games' %}">GAMES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'tags' %}">TAGS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+                            </li>
+                      </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -110,8 +79,8 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <div class="text-center aboutme-content">
-                            <b>Copyright &copy; 2018</b><br>
-                            By <span ><a class="undecorated-a" href="/about/">bewakes</a></span><br>
+                            <b>Copyright &copy; 2020</b><br>
+                            <span ><a class="undecorated-a" href="/about/">bewakes</a></span><br>
                         </div>
                     </div>
                     <div class="col-md-3"></div>
@@ -119,7 +88,6 @@
             </div>
         </footer>
         </body>
-    
         <script type="text/javascript" src="{% static 'jquery.js' %}"></script>
         <script src="{% static 'custom.js' %}"></script>
 
@@ -134,50 +102,17 @@
                     elem.style.width = "100%";
                 }
             })();
-        // when the contents of the searchbox change
-        $("#searchbox").on('input', function(e) { 
-            var query = $("#searchbox").val();
-
-            // send post request
-            $.ajax({
-                "type":"GET",
-                //"contentType":"application/json",
-                "url":"{% url 'searchresult' %}",
-                "data":{query:query, csrfmiddlewaretoken:'{{csrf_token}}'}
-            })
-            .done(function(msg) {
-                var jsondata = JSON.parse(msg);
-                populateSearchResult(jsondata);
-            });
-        });
-
-        // global variable for searchbox
-        var g_searchbox = document.getElementById('searchbox');
-
-        // to hide the input box
-        document.onload = load();
-        // to blur the searchbox
-        document.onclick = function(e)
-            {
-                if(e.target.id!='searchbox' && e.target.id!="search-icon")
+            $.post(
+                'https://graph.facebook.com',
                 {
-                    g_searchbox.style.visibility="hidden";
-                    $("#search-result").hide();
+                    id: 'https://bewakes.com/blog/{{article.slug}}',
+                    scrape: true
+                },
+                function(response){
+                    console.log(response);
                 }
-            }
-        $.post(
-        'https://graph.facebook.com',
-        {
-            id: 'https://bewakes.com/blog/{{article.slug}}',
-            scrape: true
-        },
-        function(response){
-            console.log(response);
-        }
-);
-
+            );
     </script>
-
         {% block scripts %}
         {% endblock %}
     </html>

@@ -2,29 +2,34 @@
 {% load staticfiles %}
 
 {% block content %}
-<div id="article">
+<div id="contents">
     <div class="container-fluid">
         <div class="row">
-            <div id="article-title">
-                <span id="article-title-text">Contact Me</span>
-            </div>
-            <div class="col-md-2"> </div>
-            <div class="col-md-7 contact-content text-justify">
-                <div class="">
-                    Feel free to contact me if you have any queries, questions or you just want to talk, or if there's
-                    any way I can help you. <b>I am Always Ready!!</b><br><br>
-                    <p class="text-center">
-                        <b>bewakepandey@gmail.com</b><br>
-                        <b>+977 - 9845407092</b><br>
-                        <a class="" href="http://www.facebook.com/be.pandey">Facebook</a> <br>
-                        <a class="" href="http://www.twitter.com/be_pandey">Twitter</a> <br>
-                        <a class="" href="http://www.linkedin.com/in/bibek-pandey-023879b1">Linkedin</a><br>
-                        <a class="" href="http://www.github.com/bewakes">Github</a><br>
-                    </p>
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col-md-6 col-sm-10">
+                <div id="article">
+                    <div id="article-title" style="margin-top: -15px; margin-bottom: 15px;">
+                        <span id="article-title-text">Contact Me</span>
+                    </div>
+                    <div id="article-content">
+                        <span class="text-center">
+                            Feel free to contact me if you have any queries, questions or you just want to talk, or if there's
+                            any way I can help you. <b>Always happy to help and talk!!</b><br><br>
+                        </span>
+                        <p class="text-center">
+                            <a href="mailto:bewakepandey@gmail.com"><i class="fas fa-at" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a class="" href="http://www.github.com/bewakes"><i class="fab fa-github" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a class="" href="http://www.linkedin.com/in/bibek-pandey-023879b1"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a class="" href="http://www.twitter.com/be_pandey"><i class="fab fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a class="" href="http://www.facebook.com/be.pandey"><i class="fab fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-3 col-sm-1"></div>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
 {% endblock %}

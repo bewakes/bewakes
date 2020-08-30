@@ -5,28 +5,37 @@
 <div id="article">
     <div class="container-fluid">
         <div class="row">
-            <div id="article-title">
-                <span id="article-title-text">That's Me</span>
+            <div class="col-md-12">
+                <div class="text-center"><h1>About me</h1></div>
             </div>
-            <div class="col-md-4" id="article-content" style="text-align:right">
-                <img src="{% static 'img/blogimage.jpg' %}" style="width:350px;max-height:100%">
-            </div>
-            <div class="col-md-8 aboutme-content ">
-                <div class="">
-                    Right there on the picture.<hr>
-                    Born: <b>December 29th, 1994 [Meghauli, Chitwan]</b><br><hr>
-                    Profession: <b>Computer Engineering.</b> <br><hr>
-                    School: <b>Valmiki Shiksha Sadan, Bharatpur</b><br><hr>
-                    High School: <b>SOS Hermann Gmeiner School, Bharatpur</b><br><hr>
-                    BE: <b>IOE Pulchowk Campus, Lalitpur</b><br><hr>
-                    Favourite Sports: <b>Table Tennis and Swimming.</b><br><hr>
-                    Hobbies: <b>friends, 'math'ing, travelling, sketching, music</b><br><hr>
-                    laughing, making people laugh and being made laugh feel so good.<br><hr>
-                    <b>I want to be a great mathematician</b><hr>
-                    <b>I care for spreading love and happiness all over the world</b><hr>
-                    I am always a <b>proud Nepali</b><br><hr>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-sm-1"></div>
+            <div class="col-md-3">
+                <div style="text-align:right; margin-top: 40px;">
+                    <img src="{% static 'img/blogimage.jpg' %}" style="width:350px;max-height:100%">
                 </div>
             </div>
+            <div class="col-md-5 col-sm-10">
+                <div id="article">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr><td>Born</td><th scope="row">December 29th, 1994 [Meghauli, Chitwan]</th></tr>
+                            <tr><td>Profession</td><th scope="row">Software Development</th></tr>
+                            <tr><td>School</td><th scope="row">Valmiki Shiksha Sadan, Bharatpur</th></tr>
+                            <tr><td>High School</td><th>SOS Hermann Gmeiner School, Bharatpur</th></tr>
+                            <tr><td>Bachelors</td><th>IOE Pulchowk Campus, Lalitpur</th></tr>
+                            <tr><td>Masters</td><th>IOE Pulchowk Campus, Lalitpur</th></tr>
+                            <tr><td>Sports</td><th>Table Tennis and Swimming.</th></tr>
+                            <tr><td>Hobbies</td><th>friends, 'math'ing, travelling, sketching, music, laughing, making people laugh and being made laugh feel so good.</th></tr>
+                            <tr><td></td><th>I want to be a great mathematician</th></tr>
+                            <tr><td></td><th>Always a proud Nepali</th></tr>
+                            <tr><td></td><th>Let Love and happiness spread all over.</th></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-1"></div>
         </div>
     </div>
 </div>
