@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^journal/', include('journal.urls')),
     url(r'^$', include('blog.urls')),
 ]
+urlpatterns += static(r'static/', document_root=settings.STATIC_ROOT)
 urlpatterns += static(r'media/', document_root=settings.MEDIA_ROOT)
 urlpatterns += static(r'html-js-stuffs/', document_root=settings.HTMLJS_ROOT)

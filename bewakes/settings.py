@@ -129,7 +129,7 @@ MEDIA_URL = '/media/'
 HTMLJS_ROOT = os.path.join(BASE_DIR, 'html-js-stuffs')
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "django-static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
