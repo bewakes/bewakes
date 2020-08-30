@@ -5,6 +5,18 @@ body
     color: #444;
 }
 
+@media (max-width:1280px) {
+    body {
+        font-size: 1.3rem;
+    }
+    #article-content, .article-content {
+        font-size: 1.95rem;
+    }
+    .nav-item {
+        font-size: 1.3rem;
+    }
+}
+
 pre
 {
     font-size: 0.9rem;
