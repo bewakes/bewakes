@@ -1,10 +1,12 @@
 {% load staticfiles %}
+<!DOCTYPE html>
 <html>
     <head>
         <title>{% if article.title %} {{article.title}}
             {% else %}BeWakes
             {% endif %}
         </title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:description" content="{{article.content|truncatechars:50}}" />
         <meta name="twitter:title" content="{{article.title}}" />
@@ -27,8 +29,8 @@
     <body>
         {# header #}
         <div id="page-header">
-            <div class="container-fluid">
-                <div class="jumbotron p-2 pt-5 text-white" style="background-color: #232328 !important">
+            <div class="container-fluid" style="padding-left: 0px; padding-right: 0px">
+                <div class="jumbotron p-2 pt-5 text-white" style="background-color: #232328 !important; border-radius: 0px;">
                     <div class="row">{# for blog title #}
                         <div class="col-lg-4"></div>
                         <div id="blog-title" class="col-lg-4 text-center">{# for title #}
