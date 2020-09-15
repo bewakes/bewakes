@@ -12,8 +12,8 @@ MathJax.Hub.Config({
         <div id="contents">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3 col-sm-1"></div>
-                    <div class="col-md-6 col-sm-10">
+                    <div class="col-lg-3 col-md-0"></div>
+                    <div class="col-lg-6 col-md-12">
                         <div id="article">
                             <div id="article-title">
                                 <span id="article-title-text"> {{article.title}}</span>
@@ -59,7 +59,7 @@ MathJax.Hub.Config({
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-1"></div>
+                    <div class="col-lg-3 col-md-0"></div>
                     <!--<div class="col-md-3">
                         <div id="side-pane">
                             <h2><u>Recent posts</u></h2><br>
@@ -76,8 +76,8 @@ MathJax.Hub.Config({
 
         {# comment part #}
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-lg-3 col-md-1"></div>
+                <div class="col-lg-6 col-md-10">
                     <div id="disqus_thread"></div>
                     <script>
 
@@ -99,7 +99,7 @@ MathJax.Hub.Config({
                     </script>
                     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-lg-3 col-md-1"></div>
             </div>
         {% endblock %}
         {% block scripts %}
