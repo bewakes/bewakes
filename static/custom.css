@@ -5,12 +5,18 @@ body
     color: #444;
 }
 
+h2 {
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
 blockquote {
     background: #f3f3f3;
     padding: 10px;
     padding-left: 25px;
     font-weight: normal;
     font-size: 1.2rem;
+    border-left: solid 10px gray;
 }
 
 @media (screen and max-width:1280px) {
